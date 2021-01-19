@@ -43,16 +43,20 @@ process.stdin.on('keypress', (str, key) => {
         process.exit();
     }
     else if(key.name === '0'){
-        message = 'KAMERA 100%'
+        message = 'CAMERA 100%'
     }
     else if(key.name === '1'){
-        message = 'PREZENTACJA'
+        message = 'PRESENTATION'
     }
     else if(key.name === '7'){
-        message = 'OCZEKIWANIE'
+        message = 'WAITING SCREEN'
     }
     else if(key.name === '8'){
-        message = 'ZAKOŃCZENIE'
+        message = 'END SCREEN'
+    }
+
+    if(message.length === 0){
+        return;
     }
 
     console.log(key);
