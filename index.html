@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="display-3" id="currentAction">?</h1>
+            <div id="timer">?</div>
+        </div>
+    </div>
+</div>
+
+    <script>
+        const ipcRenderer = require('electron').ipcRenderer;
+        ipcRenderer.on('store-data', function (event,store) {
+            console.log(store);
+            //var data = JSON.parse(store);
+            if(store.message && store.message.length > 0){
+                document.getElementById('currentAction').innerHTML = store.message;
+            }
+        });
+    </script>
+</body>
+</html>
